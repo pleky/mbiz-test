@@ -27,20 +27,26 @@ import { FaBars, FaAngleDown } from "react-icons/fa";
 import { Colors, Images } from "../../theme";
 import Styles from "./styles";
 
-
-
 const headerComponent = () => {
   const [open, setOpen] = useState(false);
+  const [open1, setOpen1] = useState(false);
   const anchorRef = useRef(null);
+  const testRef = useRef(null)
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleToggle = () => {
     setOpen(prevOpen => !prevOpen);
   };
+  const handleToggle1 = () => {
+    setOpen1(prevOpen => !prevOpen);
+  };
 
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
     setOpen(false);
+  };
+  const handleMenuItemClick1 = (event, index) => {
+    setOpen1(false);
   };
 
   const handleClose = event => {
@@ -76,10 +82,14 @@ const headerComponent = () => {
           <Container maxWidth="lg">
             <Grid container alignItems="center">
               <Box
+                ref={testRef}
                 display="flex"
                 flexDirection="row"
                 alignItems="center"
-                style={{ flex: 0.3 }}
+                className={classes.menuKategori}
+                onClick={handleToggle1}
+                aria-owns={open1 ? "menu-list" : undefined}
+                aria-haspopup="true"
               >
                 <FaBars />
                 <Hidden smDown>
@@ -87,6 +97,37 @@ const headerComponent = () => {
                   <FaAngleDown />
                 </Hidden>
               </Box>
+
+              <Popper open={open1} anchorEl={testRef.current} transition>
+                {({ TransitionProps, placement }) => (
+                  <Grow
+                    {...TransitionProps}
+                    style={{
+                      transformOrigin:
+                        placement === "bottom" ? "center top" : "center bottom"
+                    }}
+                  >
+                    <Paper id="menu-list">
+                      <ClickAwayListener onClickAway={handleMenuItemClick1}>
+                        <MenuList>
+                          {options.map((option, index) => (
+                            <MenuItem
+                              key={option}
+                              className={classes.menuItem}
+                              selected={index === selectedIndex}
+                              onClick={event =>
+                                handleMenuItemClick1(event, index)
+                              }
+                            >
+                              {option}
+                            </MenuItem>
+                          ))}
+                        </MenuList>
+                      </ClickAwayListener>
+                    </Paper>
+                  </Grow>
+                )}
+              </Popper>
 
               <Box style={{ flex: 2 }} paddingRight="5px">
                 <Box
@@ -136,6 +177,7 @@ const headerComponent = () => {
                             <MenuList>
                               {options.map((option, index) => (
                                 <MenuItem
+                                  className={classes.menuItem}
                                   key={option}
                                   selected={index === selectedIndex}
                                   onClick={event =>
@@ -203,6 +245,6 @@ const headerComponent = () => {
       </Box>
     </div>
   );
-}
+};
 
 export default headerComponent;

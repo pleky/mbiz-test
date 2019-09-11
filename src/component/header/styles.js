@@ -58,6 +58,18 @@ const Styles = makeStyles(theme => ({
     alignItems: "center",
     justifyContent: "space-between",
     flex: 0.3
+  },
+  menuKategori: {
+    flex: 0.3,
+    "&:hover":{
+      cursor: 'pointer'
+    }
+  },
+  menuItem: {
+    "&:hover": {
+      color: Colors.white,
+      backgroundColor: Colors.ocean
+    },
   }
 }));
 
