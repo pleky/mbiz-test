@@ -1,0 +1,26 @@
+const images = {
+    logo: require('../images/logo.png'),
+    big1: require('../images/big1.jpg'),
+    big2: require('../images/big2.jpg'),
+    big3: require('../images/big3.jpg'),
+    big4: require('../images/big4.jpg'),
+    small1: require('../images/small1.jpg'),
+    small2: require('../images/small2.jpg'),
+    how: require('../images/how.jpg'),
+    find: require('../images/find.jpg'),
+    why: require('../images/why.jpg'),
+    sp: require('../images/sp.jpg'),
+    nav1: require('../images/nav-ico1.png'),
+    nav2: require('../images/nav-ico2.png'),
+    nav3: require('../images/nav-ico3.png'),
+    nav4: require('../images/nav-ico4.png'),
+    nav5: require('../images/nav-ico5.png'),
+    nav6: require('../images/nav-ico6.png'),
+    nav7: require('../images/nav-ico7.png'),
+    nav8: require('../images/nav-ico8.png'),
+    nav9: require('../images/nav-ico9.png'),
+    nav10: require('../images/nav-ico10.png'),
+    nav11: require('../images/nav-ico11.png'),
+}
+
+export default images
