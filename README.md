@@ -7,5 +7,5 @@ Untuk bisa menjalankan projek ini di laptop atau komputer anda silahkan clone ik
 ```git clone https://github.com/pleky/mbiz-test.git
 cd mbiz-test
 yarn
-yarn start```
+yarn start
 
